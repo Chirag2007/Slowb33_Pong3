@@ -1,5 +1,5 @@
 extends Node2D
-
+# Variables used in this scene are follwing.
 var linie_rect
 var horizontal_max
 var vertical_max
@@ -9,12 +9,14 @@ var counter_player_left = 0
 var counter_player_right = 0
 
 # Called when the node enters the scene tree for the first time.
+#This function only starts when the user starts the scene
 func _ready():
 	horizontal_max = int(get_viewport().size.x)
 	vertical_max  = int(get_viewport().size.y)
 	box_height = vertical_max/50
 	box_width = 8
 #Check if a Joystick is connected
+#if the joystick is not connected, then this command turns false
 	Input.connect("joy_connection_changed",self,"joy_con_changed")
 
 func joy_con_changed(deviceid, isConnected):
